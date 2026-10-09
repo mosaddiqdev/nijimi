@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nijimi</title>
+<meta name="description" content="Walk through a watercolor that paints itself. An endless ink and wash landscape, generated live as you scroll.">
+<meta name="theme-color" content="#EFEDE8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="c" role="img" aria-label="An endless watercolor landscape that draws itself as you scroll"></canvas>
+<div class="grain"></div>
+<button class="ui odo" id="odo" aria-label="Distance walked. Tap to change units" title="Tap to change units"><b id="dist">0</b><span id="unit">M</span></button>
+<div class="ui menu">
+  <button id="menu" class="fab" aria-expanded="false" aria-controls="tray" aria-label="Open controls"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
+  <div id="tray" class="tray" role="group" aria-label="Landscape controls">
+    <button id="walk" aria-pressed="false"><svg class="pl" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="pa" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><span id="walkLb">Auto-walk</span><kbd>W</kbd></button>
+    <div class="lbl">Walking speed</div>
+    <div class="seg" role="group" aria-label="Walking speed"><button data-s="45" aria-pressed="false">Slow</button><button data-s="90" aria-pressed="true">Steady</button><button data-s="180" aria-pressed="false">Brisk</button></div>
+    <div class="lbl">Depth</div>
+    <div class="seg" role="group" aria-label="Depth effect"><button data-d="0" aria-pressed="false">Flat</button><button data-d="1" aria-pressed="false">Gentle</button><button data-d="2" aria-pressed="true">Full</button></div>
+    <div class="lbl">Lighting</div>
+    <div class="seg" role="group" aria-label="Lighting mode"><button data-l="0" aria-pressed="false">Day</button><button data-l="1" aria-pressed="true">Auto<kbd>L</kbd></button><button data-l="2" aria-pressed="false">Night</button></div>
+    <button id="seed"><svg viewBox="0 0 24 24"><path d="M17.6 6.4A8 8 0 1 0 20 12h-2a6 6 0 1 1-1.8-4.2L13 11h7V4z"/></svg>New landscape<kbd>N</kbd></button>
+    <button id="shot"><svg viewBox="0 0 24 24"><path d="M9 4 7.2 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3.2L15 4zm3 5a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/></svg>Save screenshot<kbd>S</kbd></button>
+    <button id="hide"><svg viewBox="0 0 24 24"><path d="M12 5C7 5 2.7 8.1 1 12c1.7 3.9 6 7 11 7s9.3-3.1 11-7c-1.7-3.9-6-7-11-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="2.2" fill="none"/></svg>Hide controls<kbd>H</kbd></button>
+  </div>
+</div>
+<button id="revive" aria-label="Show controls"></button>
+<div id="hint" role="status" aria-live="polite">Scroll to keep drawing</div>
+<div id="flash"></div>
+<div id="spacer"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
